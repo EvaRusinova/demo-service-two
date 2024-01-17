@@ -1,0 +1,5 @@
+server:
+  port: 8081
+demo-service-two:
+  url: http://localhost:8081
+
