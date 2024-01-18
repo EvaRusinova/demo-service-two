@@ -1,23 +1,17 @@
 package com.example.demo.service.two.controller;
 
-import com.example.demo.service.two.service.DemoRestService;
 import com.example.demo.service.two.service.GrpcServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/demo")
+@RequiredArgsConstructor
 public class DemoServiceTwoController {
-    private final GrpcServiceImpl grpcServiceImpl;
-    private final DemoRestService demoRestService;
 
-    @Autowired
-    public DemoServiceTwoController(GrpcServiceImpl grpcServiceImpl, DemoRestService demoRestService) {
-        this.grpcServiceImpl = grpcServiceImpl;
-        this.demoRestService = demoRestService;
-    }
+    private final GrpcServiceImpl grpcServiceImpl;
 
     @GetMapping("/grpc")
     public String grpcEndpoint() {
@@ -26,6 +20,6 @@ public class DemoServiceTwoController {
 
     @GetMapping("/rest")
     public String restEndpoint() {
-        return demoRestService.handleRestLogic();
+        return "Ala bala, call received";
     }
 }

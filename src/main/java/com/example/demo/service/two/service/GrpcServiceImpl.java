@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GrpcServiceImpl {
 
+    // TODO: refactoring here needed. We need to somehow call grpc method
     public void grpc(DemoRequest request, StreamObserver<DemoResponse> responseObserver) {
         String message = request.getMessage();
         System.out.println("Received Message: " + message);
@@ -16,18 +17,15 @@ public class GrpcServiceImpl {
                 .build();
 
         responseObserver.onNext(demoResponse);
-        responseObserver.onCompleted();
+//        responseObserver.onCompleted();
     }
 
     public String handleGrpcLogic() {
         long startTime = System.currentTimeMillis();
-        String restResult = performGRPCLogic();
+
         long endTime = System.currentTimeMillis();
         System.out.println("Time taken for REST: " + (endTime - startTime) + "ms");
-        return restResult;
+        return null;
     }
 
-    private String performGRPCLogic() {
-        return "Received your message. Hello from gRPC Server.";
-    }
 }
