@@ -2,30 +2,24 @@ package com.example.demo.service.two.service;
 
 import com.example.grpc.DemoRequest;
 import com.example.grpc.DemoResponse;
+import com.example.grpc.GrpcServiceGrpc;
 import io.grpc.stub.StreamObserver;
-import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
+import net.devh.boot.grpc.server.service.GrpcService;
 
-@Service
-public class GrpcServiceImpl {
+@Slf4j
+@GrpcService
+public class GrpcServiceImpl extends GrpcServiceGrpc.GrpcServiceImplBase {
 
-    // TODO: refactoring here needed. We need to somehow call grpc method
-    public void grpc(DemoRequest request, StreamObserver<DemoResponse> responseObserver) {
+    public void greeting(DemoRequest request, StreamObserver<DemoResponse> responseObserver) {
         String message = request.getMessage();
-        System.out.println("Received Message: " + message);
+        log.info("Received Message: " + message);
         DemoResponse demoResponse = DemoResponse.newBuilder()
-                .setMessage("Received your message: " + message)
+                .setMessage("Connected to gRPC...")
                 .build();
 
         responseObserver.onNext(demoResponse);
-//        responseObserver.onCompleted();
-    }
-
-    public String handleGrpcLogic() {
-        long startTime = System.currentTimeMillis();
-
-        long endTime = System.currentTimeMillis();
-        System.out.println("Time taken for REST: " + (endTime - startTime) + "ms");
-        return null;
+        responseObserver.onCompleted();
     }
 
 }

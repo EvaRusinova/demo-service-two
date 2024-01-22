@@ -26,6 +26,12 @@ dependencies {
 	implementation 'io.grpc:grpc-stub:1.61.0'
 	compileOnly 'org.projectlombok:lombok:1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+	implementation 'io.grpc:grpc-okhttp:1.61.0'
+	// https://mvnrepository.com/artifact/net.devh/grpc-server-spring-boot-starter
+	implementation 'net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE'
+// https://mvnrepository.com/artifact/net.devh/grpc-client-spring-boot-starter
+	implementation 'net.devh:grpc-client-spring-boot-starter:2.15.0.RELEASE'
+
 }
 protobuf {
 	protoc {

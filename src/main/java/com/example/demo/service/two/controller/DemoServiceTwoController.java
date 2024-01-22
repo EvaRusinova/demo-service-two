@@ -13,13 +13,8 @@ public class DemoServiceTwoController {
 
     private final GrpcServiceImpl grpcServiceImpl;
 
-    @GetMapping("/grpc")
-    public String grpcEndpoint() {
-        return grpcServiceImpl.handleGrpcLogic();
-    }
-
     @GetMapping("/rest")
     public String restEndpoint() {
-        return "Ala bala, call received";
+        return "Rest response received.";
     }
 }
