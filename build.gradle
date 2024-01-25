@@ -22,11 +22,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.apache.tomcat.embed:tomcat-embed-core:11.0.0-M16'
+	//grpc
 	implementation 'io.grpc:grpc-protobuf:1.61.0'
 	implementation 'io.grpc:grpc-stub:1.61.0'
+	implementation 'io.grpc:grpc-okhttp:1.61.0'
+	implementation 'io.grpc:grpc-api:1.61.0'
+	implementation 'io.grpc:grpc-netty:1.61.0'
 	compileOnly 'org.projectlombok:lombok:1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
-	implementation 'io.grpc:grpc-okhttp:1.61.0'
 	// https://mvnrepository.com/artifact/net.devh/grpc-server-spring-boot-starter
 	implementation 'net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE'
 // https://mvnrepository.com/artifact/net.devh/grpc-client-spring-boot-starter
