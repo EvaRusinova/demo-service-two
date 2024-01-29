@@ -1,6 +1,6 @@
 package com.example.demo.service.two.controller;
 
-import com.example.demo.service.two.service.GrpcServiceImpl;
+import com.example.demo.service.two.service.RestServiceSimulator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class DemoServiceTwoController {
 
-    private final GrpcServiceImpl grpcServiceImpl;
+    private final RestServiceSimulator restServiceSimulator;
 
     @GetMapping("/rest")
-    public String restEndpoint() {
-        return "Rest response received.";
+    public void restEndpoint() {
+        restServiceSimulator.simulateActivity();
     }
 }
